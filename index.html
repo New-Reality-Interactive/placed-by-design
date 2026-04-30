@@ -427,7 +427,9 @@
          height: 100%;
          position: absolute;
          inset: 0;
-         overflow: hidden;
+         object-fit: cover;
+         object-position: center;
+         display: block;
       }
 
       .hero-badge {
@@ -1584,9 +1586,9 @@
          </div>
       </div>
       <div class="hero-right">
-         <div class="img-placeholder hero-img-main">
-            <span class="ph-label">Hero Image</span>
-         </div>
+         <img src="caroline-badran-_1tT95nCC3w-unsplash.jpg"
+            alt="Beautifully organized home pantry with labeled containers and tidy shelves" class="hero-img-main"
+            style="object-fit:cover;" />
          <div class="hero-badge">
             <div class="hero-badge-title">Phoenix, AZ</div>
             <div class="hero-badge-sub"><span class="hero-badge-dot"></span>Available for new projects</div>
