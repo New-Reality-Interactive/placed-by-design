@@ -39,6 +39,8 @@
       html {
          scroll-behavior: smooth;
          font-size: 16px;
+         scroll-padding-top: 100px;
+         /* desktop: nav ~66px + breathing room */
       }
 
       body {
@@ -291,7 +293,7 @@
          font-weight: 500;
          letter-spacing: 0.08em;
          text-transform: uppercase;
-         color: var(--stone);
+         color: var(--charcoal);
          transition: color 0.2s;
       }
 
@@ -1391,6 +1393,10 @@
 
       /* ─── RESPONSIVE ──────────────────────────────────────────────── */
       @media (max-width: 1024px) {
+         html {
+            scroll-padding-top: 260px;
+         }
+
          #hero {
             grid-template-columns: 1fr;
             min-height: auto;
@@ -1430,6 +1436,11 @@
       @media (max-width: 768px) {
          .container {
             padding: 0 20px;
+         }
+
+         html {
+            scroll-padding-top: 260px;
+            /* mobile: 200px logo + nav padding */
          }
 
          .nav-links {
