@@ -1432,6 +1432,35 @@
             display: none;
          }
 
+         .nav-links.nav-open {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(253, 250, 246, 0.98);
+            backdrop-filter: blur(12px);
+            padding: 24px 32px;
+            gap: 20px;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 8px 24px rgba(44, 43, 41, 0.08);
+            z-index: 99;
+         }
+
+         .hamburger.is-active span:nth-child(1) {
+            transform: translateY(6.5px) rotate(45deg);
+         }
+
+         .hamburger.is-active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+         }
+
+         .hamburger.is-active span:nth-child(3) {
+            transform: translateY(-6.5px) rotate(-45deg);
+         }
+
          .hamburger {
             display: flex;
          }
@@ -1537,7 +1566,8 @@
    <nav id="nav">
       <div class="container">
          <div class="nav-inner">
-            <a href="#" class="nav-logo"><img src="./placed_by_design_logo.png" alt="Placed by Design" class="nav-logo-img" /></a>
+            <a href="#" class="nav-logo"><img src="./placed_by_design_logo.png" alt="Placed by Design"
+                  class="nav-logo-img" /></a>
             <ul class="nav-links">
                <li><a href="#about">About</a></li>
                <li><a href="#services">Services</a></li>
@@ -2373,21 +2403,33 @@
          nav.classList.toggle('scrolled', window.scrollY > 40);
       });
 
-      // Hamburger (basic toggle nav-links on mobile)
-      document.getElementById('hamburgerBtn').addEventListener('click', () => {
-         const links = document.querySelector('.nav-links');
-         const isOpen = links.style.display === 'flex';
-         links.style.display = isOpen ? 'none' : 'flex';
-         links.style.flexDirection = 'column';
-         links.style.position = 'absolute';
-         links.style.top = '70px';
-         links.style.left = '0';
-         links.style.right = '0';
-         links.style.background = 'rgba(253,250,246,0.98)';
-         links.style.padding = '24px 32px';
-         links.style.gap = '20px';
-         links.style.borderBottom = '1px solid var(--border)';
-         if (isOpen) links.style.display = 'none';
+      // Hamburger — class-based toggle
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const navLinks = document.querySelector('.nav-links');
+
+      hamburgerBtn.addEventListener('click', () => {
+         const isOpen = navLinks.classList.contains('nav-open');
+         navLinks.classList.toggle('nav-open', !isOpen);
+         hamburgerBtn.classList.toggle('is-active', !isOpen);
+         hamburgerBtn.setAttribute('aria-expanded', String(!isOpen));
+      });
+
+      // Close menu when a nav link is clicked
+      navLinks.querySelectorAll('a').forEach(link => {
+         link.addEventListener('click', () => {
+            navLinks.classList.remove('nav-open');
+            hamburgerBtn.classList.remove('is-active');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+         });
+      });
+
+      // Close menu on resize back to desktop
+      window.addEventListener('resize', () => {
+         if (window.innerWidth > 768) {
+            navLinks.classList.remove('nav-open');
+            hamburgerBtn.classList.remove('is-active');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+         }
       });
 
       // Scroll reveal
