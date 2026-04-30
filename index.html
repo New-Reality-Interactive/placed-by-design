@@ -2230,8 +2230,12 @@
                      </select>
                   </div>
                   <div class="form-group" id="referralGroup" style="display:none;">
-                     <label class="form-label">If referred by a friend, who?</label>
+                     <label class="form-label">Who referred you?</label>
                      <input type="text" class="form-input" placeholder="Friend's name" />
+                  </div>
+                  <div class="form-group" id="otherGroup" style="display:none;">
+                     <label class="form-label">Please specify</label>
+                     <input type="text" class="form-input" placeholder="How did you hear about us?" />
                   </div>
                </div>
 
@@ -2403,9 +2407,11 @@
       // Referral field toggle
       const hearSelect = document.getElementById('hearAboutSelect');
       const referralGroup = document.getElementById('referralGroup');
+      const otherGroup = document.getElementById('otherGroup');
       if (hearSelect) {
          hearSelect.addEventListener('change', () => {
             referralGroup.style.display = hearSelect.value === 'Referred by a friend' ? 'block' : 'none';
+            otherGroup.style.display = hearSelect.value === 'Other' ? 'block' : 'none';
          });
       }
 
