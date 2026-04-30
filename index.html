@@ -316,8 +316,10 @@
       /* ─── HERO ────────────────────────────────────────────────────── */
       #hero {
          min-height: 100vh;
+         height: 100vh;
          display: grid;
          grid-template-columns: 1fr 1fr;
+         grid-template-rows: 1fr;
          position: relative;
          overflow: hidden;
       }
@@ -417,7 +419,7 @@
 
       .hero-right {
          position: relative;
-         overflow: hidden;
+         overflow: visible;
       }
 
       .hero-img-main {
@@ -425,12 +427,13 @@
          height: 100%;
          position: absolute;
          inset: 0;
+         overflow: hidden;
       }
 
       .hero-badge {
          position: absolute;
          bottom: 48px;
-         left: -28px;
+         left: 24px;
          background: var(--warm-white);
          border: 1px solid var(--border);
          padding: 18px 22px;
