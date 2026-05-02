@@ -1042,6 +1042,153 @@
          color: var(--stone);
       }
 
+      /* ─── PROCESS ────────────────────────────────────────────────── */
+      #process {
+         background: var(--cream);
+         overflow: hidden;
+      }
+
+      .process-header {
+         text-align: center;
+         max-width: 600px;
+         margin: 0 auto 80px;
+      }
+
+      .process-header .divider {
+         margin: 20px auto;
+      }
+
+      .process-track {
+         position: relative;
+         display: flex;
+         flex-direction: column;
+         max-width: 900px;
+         margin: 0 auto;
+      }
+
+      .process-track::before {
+         content: '';
+         position: absolute;
+         left: 50%;
+         top: 0;
+         bottom: 0;
+         width: 1px;
+         background: var(--border);
+         transform: translateX(-50%);
+      }
+
+      .process-step {
+         display: grid;
+         grid-template-columns: 1fr 80px 1fr;
+         align-items: start;
+         padding-bottom: 56px;
+      }
+
+      .process-step:last-child {
+         padding-bottom: 0;
+      }
+
+      .process-step:nth-child(odd) .step-content {
+         grid-column: 1;
+         text-align: right;
+         padding-right: 48px;
+         padding-top: 8px;
+      }
+
+      .process-step:nth-child(odd) .step-node {
+         grid-column: 2;
+      }
+
+      .process-step:nth-child(odd) .step-spacer {
+         grid-column: 3;
+      }
+
+      .process-step:nth-child(even) .step-spacer {
+         grid-column: 1;
+         grid-row: 1;
+      }
+
+      .process-step:nth-child(even) .step-node {
+         grid-column: 2;
+         grid-row: 1;
+      }
+
+      .process-step:nth-child(even) .step-content {
+         grid-column: 3;
+         grid-row: 1;
+         text-align: left;
+         padding-left: 48px;
+         padding-top: 8px;
+      }
+
+      .step-node {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         position: relative;
+         z-index: 1;
+      }
+
+      .step-node-circle {
+         width: 56px;
+         height: 56px;
+         border-radius: 50%;
+         background: var(--warm-white);
+         border: 2px solid var(--border);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex-shrink: 0;
+         transition: border-color 0.3s, background 0.3s;
+      }
+
+      .process-step:hover .step-node-circle {
+         border-color: var(--clay);
+         background: var(--clay);
+      }
+
+      .step-node-number {
+         font-family: var(--ff-display);
+         font-size: 1.1rem;
+         font-weight: 500;
+         color: var(--clay);
+         transition: color 0.3s;
+         line-height: 1;
+      }
+
+      .process-step:hover .step-node-number {
+         color: var(--white);
+      }
+
+      .step-label {
+         font-size: 0.7rem;
+         font-weight: 500;
+         letter-spacing: 0.14em;
+         text-transform: uppercase;
+         color: var(--clay);
+         margin-bottom: 8px;
+      }
+
+      .step-title {
+         font-family: var(--ff-display);
+         font-size: 1.4rem;
+         font-weight: 500;
+         color: var(--charcoal);
+         margin-bottom: 14px;
+         line-height: 1.25;
+      }
+
+      .step-desc {
+         font-size: 0.92rem;
+         line-height: 1.82;
+         color: var(--stone);
+         max-width: 380px;
+      }
+
+      .process-step:nth-child(odd) .step-desc {
+         margin-left: auto;
+      }
+
       /* ─── FAQ ─────────────────────────────────────────────────────── */
       #faq {
          background: var(--warm-white);
@@ -1617,6 +1764,41 @@
             grid-template-columns: 1fr;
          }
 
+         .process-track::before {
+            left: 28px;
+         }
+
+         .process-step {
+            grid-template-columns: 56px 1fr;
+            padding-bottom: 44px;
+         }
+
+         .process-step:nth-child(odd) .step-content,
+         .process-step:nth-child(even) .step-content {
+            grid-column: 2;
+            grid-row: 1;
+            text-align: left;
+            padding: 8px 0 0;
+         }
+
+         .process-step:nth-child(odd) .step-node,
+         .process-step:nth-child(even) .step-node {
+            grid-column: 1;
+            grid-row: 1;
+         }
+
+         .process-step .step-spacer {
+            display: none;
+         }
+
+         .process-step:nth-child(odd) .step-desc {
+            margin-left: 0;
+         }
+
+         .step-desc {
+            max-width: 100%;
+         }
+
          .faq-grid {
             grid-template-columns: 1fr;
             gap: 48px;
@@ -1675,6 +1857,7 @@
                <li><a href="#services">Services</a></li>
                <li><a href="#gallery">Gallery</a></li>
                <li><a href="#pricing">Pricing</a></li>
+               <li><a href="#process">Process</a></li>
                <li><a href="#faq">FAQ</a></li>
                <li><a href="#contact" class="btn btn-clay nav-cta">Book a Consult</a></li>
             </ul>
@@ -2210,6 +2393,109 @@
          </div>
          <p class="pricing-note reveal">All projects begin with a complimentary 15-minute phone consultation. <a
                href="#contact" class="pricing-note-link">Reach out today →</a></p>
+      </div>
+   </section>
+
+   <!-- ── PROCESS ─────────────────────────────────────────────── -->
+   <section id="process" class="section">
+      <div class="container">
+         <div class="process-header reveal">
+            <span class="tag">How It Works</span>
+            <h2 class="section-title">Your path to a <em>calm, organized</em> home</h2>
+            <div class="divider"></div>
+            <p class="section-subtitle" style="margin: 0 auto;">A thoughtful, collaborative process — designed around
+               your life, your schedule, and your vision.</p>
+         </div>
+
+         <div class="process-track">
+
+            <!-- Step 1 -->
+            <div class="process-step reveal">
+               <div class="step-content">
+                  <div class="step-label">Step 01</div>
+                  <div class="step-title">Consultation</div>
+                  <p class="step-desc">We begin by touring your space and discussing your organizing goals. I'll get a
+                     feel for your routines, stress points, and challenges — taking measurements and photos for detailed
+                     planning. We'll cover pricing, scheduling, and any questions you have.</p>
+               </div>
+               <div class="step-node">
+                  <div class="step-node-circle">
+                     <span class="step-node-number">01</span>
+                  </div>
+               </div>
+               <div class="step-spacer"></div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="process-step reveal">
+               <div class="step-spacer"></div>
+               <div class="step-node">
+                  <div class="step-node-circle">
+                     <span class="step-node-number">02</span>
+                  </div>
+               </div>
+               <div class="step-content">
+                  <div class="step-label">Step 02</div>
+                  <div class="step-title">Proposal</div>
+                  <p class="step-desc">Following the consultation, I'll create a customized proposal outlining your
+                     timeline, expectations, and recommended storage solutions. Any purchases are decided together with
+                     you after the sorting phase — nothing is assumed in advance.</p>
+               </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="process-step reveal">
+               <div class="step-content">
+                  <div class="step-label">Step 03</div>
+                  <div class="step-title">Edit &amp; Sort</div>
+                  <p class="step-desc">The organizing begins — and you don't need to be present, so we work around your
+                     busy life. I'll clear the space, sort every item, and help you decide what to keep, donate,
+                     discard, or relocate. Emotional attachments are handled with care and without judgment.</p>
+               </div>
+               <div class="step-node">
+                  <div class="step-node-circle">
+                     <span class="step-node-number">03</span>
+                  </div>
+               </div>
+               <div class="step-spacer"></div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="process-step reveal">
+               <div class="step-spacer"></div>
+               <div class="step-node">
+                  <div class="step-node-circle">
+                     <span class="step-node-number">04</span>
+                  </div>
+               </div>
+               <div class="step-content">
+                  <div class="step-label">Step 04</div>
+                  <div class="step-title">Product Install &amp; Custom Systems</div>
+                  <p class="step-desc">Once sorted, we select and purchase storage solutions that suit your aesthetics
+                     and budget. I install everything and space-plan any furniture as needed — creating intuitive
+                     systems
+                     that are easy to maintain at the level of order that works for you.</p>
+               </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="process-step reveal">
+               <div class="step-content">
+                  <div class="step-label">Step 05</div>
+                  <div class="step-title">Final Tour &amp; Walk-Through</div>
+                  <p class="step-desc">We walk the space together, review every system, and confirm everything functions
+                     as intended. I'll share practical routines for your daily life so you feel confident maintaining it
+                     on your own — and if life changes, I'm always available for a reset or maintenance visit.</p>
+               </div>
+               <div class="step-node">
+                  <div class="step-node-circle">
+                     <span class="step-node-number">05</span>
+                  </div>
+               </div>
+               <div class="step-spacer"></div>
+            </div>
+
+         </div>
       </div>
    </section>
 
