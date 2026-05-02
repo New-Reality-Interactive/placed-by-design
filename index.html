@@ -916,130 +916,93 @@
          margin-bottom: 64px;
       }
 
-      .pricing-grid {
+      .pricing-header .section-title em {
+         font-style: italic;
+         color: var(--clay);
+      }
+
+      .pricing-pillars {
          display: grid;
          grid-template-columns: repeat(3, 1fr);
-         gap: 24px;
-         align-items: stretch;
+         gap: 2px;
+         margin-bottom: 48px;
       }
 
-      .pricing-card {
+      .pricing-pillar {
          background: var(--warm-white);
-         border: 1px solid var(--border);
-         border-radius: 2px;
          padding: 44px 36px;
-         position: relative;
-         transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
-         display: flex;
-         flex-direction: column;
+         transition: background 0.3s var(--ease-out);
       }
 
-      .pricing-card:hover {
-         transform: translateY(-6px);
-         box-shadow: 0 24px 60px rgba(var(--charcoal-rgb, 44, 43, 41), 0.1);
+      .pricing-pillar:hover {
+         background: var(--white);
       }
 
-      .pricing-card.featured {
+      .pricing-pillar-icon {
+         width: 40px;
+         height: 40px;
+         color: var(--clay);
+         margin-bottom: 22px;
+      }
+
+      .pricing-pillar-icon svg {
+         width: 100%;
+         height: 100%;
+      }
+
+      .pricing-pillar-title {
+         font-family: var(--ff-display);
+         font-size: 1.2rem;
+         font-weight: 500;
+         color: var(--charcoal);
+         margin-bottom: 12px;
+      }
+
+      .pricing-pillar-desc {
+         font-size: 0.9rem;
+         line-height: 1.75;
+         color: var(--stone);
+      }
+
+      .pricing-cta-block {
          background: var(--charcoal);
-         color: var(--cream);
-         border-color: var(--charcoal);
+         border-radius: 2px;
+         padding: 56px 60px;
       }
 
-      .pricing-badge {
-         position: absolute;
-         top: -13px;
-         left: 50%;
-         transform: translateX(-50%);
-         background: var(--clay);
-         color: var(--white);
-         font-size: 0.65rem;
-         letter-spacing: 0.14em;
-         text-transform: uppercase;
-         padding: 5px 14px;
-         border-radius: 100px;
+      .pricing-cta-inner {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         gap: 48px;
       }
 
-      .pricing-tier {
+      .pricing-cta-eyebrow {
          font-size: 0.72rem;
-         letter-spacing: 0.14em;
+         letter-spacing: 0.16em;
          text-transform: uppercase;
          color: var(--clay);
+         margin-bottom: 12px;
+      }
+
+      .pricing-cta-heading {
+         font-family: var(--ff-display);
+         font-size: 1.6rem;
+         font-weight: 500;
+         color: var(--cream);
+         line-height: 1.25;
          margin-bottom: 14px;
       }
 
-      .pricing-card.featured .pricing-tier {
-         color: var(--clay);
+      .pricing-cta-body {
+         font-size: 0.92rem;
+         line-height: 1.8;
+         color: rgba(var(--cream-rgb), 0.6);
+         max-width: 480px;
       }
 
-      .pricing-name {
-         font-family: var(--ff-display);
-         font-size: 1.5rem;
-         font-weight: 500;
-         margin-bottom: 10px;
-      }
-
-      .pricing-price {
-         font-family: var(--ff-display);
-         font-size: 2.6rem;
-         font-weight: 500;
-         line-height: 1;
-         margin-bottom: 6px;
-      }
-
-      .pricing-price-note {
-         font-size: 0.8rem;
-         color: var(--stone);
-         margin-bottom: 28px;
-      }
-
-      .pricing-card.featured .pricing-price-note {
-         color: rgba(var(--cream-rgb), 0.5);
-      }
-
-      .pricing-divider {
-         height: 1px;
-         background: var(--border);
-         margin: 24px 0;
-      }
-
-      .pricing-card.featured .pricing-divider {
-         background: rgba(255, 255, 255, 0.12);
-      }
-
-      .pricing-features {
-         display: flex;
-         flex-direction: column;
-         gap: 13px;
-         margin-bottom: 36px;
-         flex-grow: 1;
-      }
-
-      .pricing-feature {
-         display: flex;
-         align-items: flex-start;
-         gap: 12px;
-         font-size: 0.88rem;
-         color: var(--stone);
-         line-height: 1.5;
-      }
-
-      .pricing-card.featured .pricing-feature {
-         color: rgba(var(--cream-rgb), 0.7);
-      }
-
-      .pricing-check {
-         width: 16px;
-         height: 16px;
-         color: var(--clay);
-         flex-shrink: 0;
-         margin-top: 1px;
-      }
-
-      .pricing-note {
-         text-align: center;
-         margin-top: 40px;
-         font-size: 0.88rem;
-         color: var(--stone);
+      .pricing-cta-text {
+         flex: 1;
       }
 
       /* ─── PROCESS ────────────────────────────────────────────────── */
@@ -1577,23 +1540,11 @@
          height: 44px;
       }
 
-      /* Pricing & form buttons — full-width centered */
-      .btn--full {
-         width: 100%;
-         justify-content: center;
-      }
-
-      /* Pricing button with extra vertical padding */
+      /* Form submit button — full-width centered */
       .btn--full-lg {
          width: 100%;
          justify-content: center;
          padding: 16px 30px;
-      }
-
-      /* Pricing note link */
-      .pricing-note-link {
-         color: var(--clay);
-         text-decoration: underline;
       }
 
       /* FAQ sidebar subtitle — flush top */
@@ -1664,6 +1615,10 @@
 
          .services-grid {
             grid-template-columns: 1fr 1fr;
+         }
+
+         .pricing-pillars {
+            grid-template-columns: 1fr;
          }
 
          .footer-grid {
@@ -1760,8 +1715,18 @@
             grid-template-columns: 1fr;
          }
 
-         .pricing-grid {
+         .pricing-pillars {
             grid-template-columns: 1fr;
+         }
+
+         .pricing-cta-block {
+            padding: 40px 28px;
+         }
+
+         .pricing-cta-inner {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 28px;
          }
 
          .process-track::before {
@@ -2266,133 +2231,64 @@
       <div class="container">
          <div class="pricing-header">
             <span class="tag reveal">Investment</span>
-            <h2 class="section-title reveal reveal-delay-1">Clear, honest pricing</h2>
-            <p class="section-subtitle pricing-subtitle reveal reveal-delay-2">Every
-               project is unique — the packages below are starting points. Custom quotes available for all homes.</p>
+            <h2 class="section-title reveal reveal-delay-1">Tailored to you,<br><em>priced accordingly</em></h2>
+            <p class="section-subtitle pricing-subtitle reveal reveal-delay-2">Every job is different and every client
+               has different needs. After your Placed by Design consultation, you'll receive a customized quote based on
+               your discussed plan — so you only pay for exactly what will provide the most value to you.</p>
          </div>
-         <div class="pricing-grid">
 
-            <div class="pricing-card reveal">
-               <div class="pricing-tier">Starter</div>
-               <div class="pricing-name">Space Consultation</div>
-               <div class="pricing-price">$149</div>
-               <div class="pricing-price-note">One-time, flat fee</div>
-               <div class="pricing-divider"></div>
-               <ul class="pricing-features">
-                  <li class="pricing-feature">
-                     <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5" />
-                     </svg>
-                     90-minute in-home assessment
-                  </li>
-                  <li class="pricing-feature">
-                     <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5" />
-                     </svg>
-                     Personalized action plan
-                  </li>
-                  <li class="pricing-feature">
-                     <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5" />
-                     </svg>
-                     Product &amp; storage recommendations
-                  </li>
-                  <li class="pricing-feature">
-                     <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5" />
-                     </svg>
-                     Priority area identification
-                  </li>
-               </ul>
-               <a href="#contact" class="btn btn-outline btn--full">Get Started</a>
+         <div class="pricing-pillars reveal reveal-delay-3">
+            <div class="pricing-pillar">
+               <div class="pricing-pillar-icon">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <path d="M16 4L4 10v12l12 6 12-6V10L16 4z" stroke-linejoin="round" />
+                     <path d="M16 4v18M4 10l12 6 12-6" stroke-linejoin="round" />
+                  </svg>
+               </div>
+               <div class="pricing-pillar-title">Scoped to Your Space</div>
+               <p class="pricing-pillar-desc">Every home is unique. Your quote reflects the size, scope, and specific
+                  areas we'll be working on together — nothing more.</p>
             </div>
-
-            <div class="pricing-card featured reveal reveal-delay-1">
-               <div class="pricing-badge">Most Popular</div>
-               <div class="pricing-tier">Single Space</div>
-               <div class="pricing-name">Room Organization</div>
-               <div class="pricing-price">From $350</div>
-               <div class="pricing-price-note">Per room / space</div>
-               <div class="pricing-divider"></div>
-               <ul class="pricing-features">
-                  <li class="pricing-feature">
-                     <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5" />
-                     </svg>
-                     Full hands-on organizing session
-                  </li>
-                  <li class="pricing-feature">
-                     <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5" />
-                     </svg>
-                     Declutter &amp; sort with you
-                  </li>
-                  <li class="pricing-feature">
-                     <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5" />
-                     </svg>
-                     Custom system design &amp; setup
-                  </li>
-                  <li class="pricing-feature">
-                     <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5" />
-                     </svg>
-                     Product sourcing &amp; shopping
-                  </li>
-                  <li class="pricing-feature">
-                     <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5" />
-                     </svg>
-                     Donation haul-away coordination
-                  </li>
-               </ul>
-               <a href="#contact" class="btn btn-clay btn--full">Book Now</a>
+            <div class="pricing-pillar">
+               <div class="pricing-pillar-icon">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <circle cx="16" cy="16" r="12" />
+                     <path d="M16 10v6l4 4" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+               </div>
+               <div class="pricing-pillar-title">Built Around Your Goals</div>
+               <p class="pricing-pillar-desc">We'll discuss what matters most to you and design a plan that delivers
+                  real, lasting results — tailored to your lifestyle and priorities.</p>
             </div>
-
-            <div class="pricing-card reveal reveal-delay-2">
-               <div class="pricing-tier">Full Service</div>
-               <div class="pricing-name">Whole-Home Reset</div>
-               <div class="pricing-price">Custom</div>
-               <div class="pricing-price-note">Based on home size &amp; scope</div>
-               <div class="pricing-divider"></div>
-               <ul class="pricing-features">
-                  <li class="pricing-feature">
-                     <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5" />
-                     </svg>
-                     Every room, top to bottom
-                  </li>
-                  <li class="pricing-feature">
-                     <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5" />
-                     </svg>
-                     Multi-day project management
-                  </li>
-                  <li class="pricing-feature">
-                     <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5" />
-                     </svg>
-                     Full product sourcing &amp; installation
-                  </li>
-                  <li class="pricing-feature">
-                     <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5" />
-                     </svg>
-                     Move-in or reset packages available
-                  </li>
-                  <li class="pricing-feature">
-                     <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M20 6L9 17l-5-5" />
-                     </svg>
-                     30-day maintenance check-in
-                  </li>
-               </ul>
-               <a href="#contact" class="btn btn-outline btn--full">Get a Quote</a>
+            <div class="pricing-pillar">
+               <div class="pricing-pillar-icon">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <path d="M6 16l6 6L26 8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+               </div>
+               <div class="pricing-pillar-title">No Surprises</div>
+               <p class="pricing-pillar-desc">You'll receive a clear, detailed proposal after your consultation — so
+                  you know exactly what to expect before anything begins.</p>
             </div>
-
          </div>
-         <p class="pricing-note reveal">All projects begin with a complimentary 15-minute phone consultation. <a
-               href="#contact" class="pricing-note-link">Reach out today →</a></p>
+
+         <div class="pricing-cta-block reveal">
+            <div class="pricing-cta-inner">
+               <div class="pricing-cta-text">
+                  <div class="pricing-cta-eyebrow">Ready to get started?</div>
+                  <div class="pricing-cta-heading">Your complimentary consultation is the first step.</div>
+                  <p class="pricing-cta-body">We'll tour your space, talk through your vision, and build a plan
+                     together. From there, you'll receive a customized quote — no pressure, no guesswork.</p>
+               </div>
+               <a href="#contact" class="btn btn-clay">
+                  Book a Free Consultation
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                     <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+               </a>
+            </div>
+         </div>
+
       </div>
    </section>
 
