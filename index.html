@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- TODO: Text Color on highlighted areas. Just use Black, Gold (#CFAC43) and White -->
+
 <head>
    <meta charset="UTF-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,8 +28,8 @@
          /* used for rgba(var(--cream-rgb), α) */
          --warm-white: #FDFAF6;
          --white: #ffffff;
-         --clay: #C17B5A;
-         --clay-deep: #A0603E;
+         --clay: #CFAC43;
+         --clay-deep: #B8922A;
          --sage: #8A9B84;
          --charcoal: #2C2B29;
          --charcoal-rgb: 44, 43, 41;
@@ -303,6 +305,9 @@
          font-weight: 500;
          color: var(--charcoal);
          letter-spacing: 0.01em;
+         display: inline-block;
+         line-height: 0;
+         border: 5px solid #CFAC43;
       }
 
       .nav-logo span {
@@ -439,7 +444,7 @@
       }
 
       .hero-stats {
-         display: flex;
+         display: none;
          gap: 40px;
          margin-top: 60px;
          padding-top: 40px;
@@ -687,10 +692,21 @@
       }
 
       .service-icon {
-         width: 44px;
-         height: 44px;
+         width: 56px;
+         height: 56px;
          margin-bottom: 24px;
-         color: var(--clay);
+         background: var(--clay);
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex-shrink: 0;
+      }
+
+      .service-icon svg {
+         width: 28px;
+         height: 28px;
+         color: #000000;
       }
 
       .service-name {
@@ -708,6 +724,7 @@
 
       /* ─── GALLERY ─────────────────────────────────────────────────── */
       #gallery {
+         display: none;
          background: var(--warm-white);
       }
 
@@ -817,6 +834,7 @@
 
       /* ─── TESTIMONIALS ────────────────────────────────────────────── */
       #testimonials {
+         display: none;
          background: var(--charcoal);
          color: var(--cream);
          overflow: hidden;
@@ -1021,6 +1039,18 @@
 
       .process-header .divider {
          margin: 20px auto;
+      }
+
+      .title-dot {
+         display: inline-block;
+         width: 12px;
+         height: 12px;
+         background: var(--clay);
+         border-radius: 50%;
+         vertical-align: middle;
+         margin: 0 6px;
+         position: relative;
+         bottom: 2px;
       }
 
       .process-track {
@@ -1570,6 +1600,17 @@
          display: none;
       }
 
+      .zipper-img {
+         margin: 32px 0;
+         /*padding: 64px 0;*/
+         mix-blend-mode: multiply;
+         width: 100%;
+         height: 100px;
+         background-image: url('./images/zipper.png');
+         background-repeat: repeat-x;
+         background-size: auto 100%;
+      }
+
       /* ─── RESPONSIVE ──────────────────────────────────────────────── */
       @media (max-width: 1024px) {
          #hero {
@@ -1809,7 +1850,8 @@
             <ul class="nav-links">
                <li><a href="#about">About</a></li>
                <li><a href="#services">Services</a></li>
-               <li><a href="#gallery">Gallery</a></li>
+               <!-- TODO: SECTION LINK HIDDEN FOR NOW -->
+               <!--li><a href="#gallery">Gallery</a></li-->
                <li><a href="#pricing">Pricing</a></li>
                <li><a href="#process">Process</a></li>
                <li><a href="#faq">FAQ</a></li>
@@ -1844,8 +1886,9 @@
                   <path d="M5 12h14M12 5l7 7-7 7" />
                </svg>
             </a>
-            <a href="#gallery" class="btn btn-outline">See Transformations</a>
          </div>
+         <div class="zipper-img"></div>
+         <!--TODO: STATS HIDDEN FOR NOW -->
          <div class="hero-stats">
             <div>
                <div class="stat-num">300+</div>
@@ -1877,12 +1920,8 @@
          <div class="about-grid">
             <div class="about-img-wrap reveal">
                <div class="about-img-main">
-                  <img src="./images/kat_moore.png" alt="Kat Moore, Founder of Placed by Design" />
+                  <div class="img-placeholder"><span class="ph-label">Photo</span></div>
                </div>
-               <div class="about-img-accent">
-                  <img src="./images/odiseo-castrejon-CX8ooha2yLA-unsplash.jpg" alt="Detail shot" />
-               </div>
-               <div class="about-quote">"A calm home is a gift you give yourself."</div>
             </div>
             <div class="about-content">
                <span class="tag">About the Founder</span>
@@ -1937,15 +1976,16 @@
                </a>
             </div>
          </div>
+         <!-- TODO: Update icons to use the gold circle background with black icon border -->
          <div class="services-grid">
 
             <!-- Card 1: Declutter / Organizing -->
             <div class="service-card reveal">
-               <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <rect x="8" y="10" width="32" height="28" rx="2" />
-                  <path d="M8 20h32M16 10v10M32 10v10" />
-                  <path d="M15 29h8M15 35h14" stroke-linecap="round" />
-               </svg>
+               <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <rect x="8" y="10" width="32" height="28" rx="2" />
+                     <path d="M8 20h32M16 10v10M32 10v10" />
+                     <path d="M15 29h8M15 35h14" stroke-linecap="round" />
+                  </svg></div>
                <div class="service-name">Declutter &amp; Organizing</div>
                <p class="service-desc">Custom home organizing designed to work with your lifestyle, in a single space
                   or
@@ -1954,11 +1994,11 @@
 
             <!-- Card 2: Re-Design / Space Plan -->
             <div class="service-card reveal reveal-delay-1">
-               <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <rect x="6" y="6" width="36" height="36" rx="2" />
-                  <path d="M6 18h36M18 6v36" />
-                  <path d="M26 26l8-8M30 18h4v4" stroke-linecap="round" stroke-linejoin="round" />
-               </svg>
+               <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <rect x="6" y="6" width="36" height="36" rx="2" />
+                     <path d="M6 18h36M18 6v36" />
+                     <path d="M26 26l8-8M30 18h4v4" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg></div>
                <div class="service-name">Re-Design &amp; Space Planning</div>
                <p class="service-desc">Working with your existing furniture, I'll help you reclaim your space and
                   transform any area of your home, identifying your style and adding aesthetic appeal to your current
@@ -1967,11 +2007,11 @@
 
             <!-- Card 3: Small Space Solutions -->
             <div class="service-card reveal reveal-delay-2">
-               <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <rect x="10" y="10" width="28" height="28" rx="2" />
-                  <path d="M19 19h10v10H19z" />
-                  <path d="M10 24h9M29 24h9M24 10v9M24 29v9" stroke-linecap="round" />
-               </svg>
+               <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <rect x="10" y="10" width="28" height="28" rx="2" />
+                     <path d="M19 19h10v10H19z" />
+                     <path d="M10 24h9M29 24h9M24 10v9M24 29v9" stroke-linecap="round" />
+                  </svg></div>
                <div class="service-name">Small Space Solutions</div>
                <p class="service-desc">No space is too small. I'll help you maximize every square foot and find
                   solutions
@@ -1980,12 +2020,12 @@
 
             <!-- Card 4: Processes / Systems -->
             <div class="service-card reveal">
-               <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <circle cx="12" cy="14" r="4" />
-                  <circle cx="36" cy="14" r="4" />
-                  <circle cx="24" cy="34" r="4" />
-                  <path d="M16 14h16M13.5 17.5L22 30.5M34.5 17.5L26 30.5" stroke-linecap="round" />
-               </svg>
+               <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <circle cx="12" cy="14" r="4" />
+                     <circle cx="36" cy="14" r="4" />
+                     <circle cx="24" cy="34" r="4" />
+                     <path d="M16 14h16M13.5 17.5L22 30.5M34.5 17.5L26 30.5" stroke-linecap="round" />
+                  </svg></div>
                <div class="service-name">Processes &amp; Systems</div>
                <p class="service-desc">I'll help you with time management and productivity by building customized
                   solutions and realistic processes that make daily life run more smoothly.</p>
@@ -1993,11 +2033,11 @@
 
             <!-- Card 5: Project Management / Renovation Support -->
             <div class="service-card reveal reveal-delay-1">
-               <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <rect x="8" y="14" width="32" height="26" rx="2" />
-                  <path d="M8 22h32M16 14V8M32 14V8" stroke-linecap="round" />
-                  <path d="M16 30l4 4 8-8" stroke-linecap="round" stroke-linejoin="round" />
-               </svg>
+               <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <rect x="8" y="14" width="32" height="26" rx="2" />
+                     <path d="M8 22h32M16 14V8M32 14V8" stroke-linecap="round" />
+                     <path d="M16 30l4 4 8-8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg></div>
                <div class="service-name">Project Management &amp; Renovation Support</div>
                <p class="service-desc">Smart planning and temporary solutions to keep your project on track and your
                   home
@@ -2006,11 +2046,11 @@
 
             <!-- Card 6: Relocating / Moving Management -->
             <div class="service-card reveal reveal-delay-2">
-               <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <rect x="6" y="20" width="36" height="22" rx="2" />
-                  <path d="M14 20V14a10 10 0 0120 0v6" stroke-linecap="round" />
-                  <path d="M18 32h12M24 28v8" stroke-linecap="round" />
-               </svg>
+               <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <rect x="6" y="20" width="36" height="22" rx="2" />
+                     <path d="M14 20V14a10 10 0 0120 0v6" stroke-linecap="round" />
+                     <path d="M18 32h12M24 28v8" stroke-linecap="round" />
+                  </svg></div>
                <div class="service-name">Relocating &amp; Moving Management</div>
                <p class="service-desc">End-to-end support to organize, unpack, and set up for moves, transitions, or
                   storage so it feels like home from day one.</p>
@@ -2018,11 +2058,11 @@
 
             <!-- Card 7: Retirement / Estate Clearing -->
             <div class="service-card reveal">
-               <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M8 40V22L24 8l16 14v18H8z" />
-                  <path d="M18 40v-10h12v10" />
-                  <path d="M14 22h4M30 22h4M24 16v6" stroke-linecap="round" />
-               </svg>
+               <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <path d="M8 40V22L24 8l16 14v18H8z" />
+                     <path d="M18 40v-10h12v10" />
+                     <path d="M14 22h4M30 22h4M24 16v6" stroke-linecap="round" />
+                  </svg></div>
                <div class="service-name">Retirement &amp; Estate Clearing</div>
                <p class="service-desc">Inventorying, sorting, emptying, and disposing of personal property for
                   downsizing or estate needs. I can coordinate estate sales, auctions, donation pick-ups, and junk
@@ -2031,12 +2071,12 @@
 
             <!-- Card 8: Vacation Property Systems -->
             <div class="service-card reveal reveal-delay-1">
-               <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M8 40V24L24 10l16 14v16H8z" />
-                  <rect x="16" y="28" width="16" height="12" rx="1" />
-                  <circle cx="24" cy="22" r="3" />
-                  <path d="M20 28v-2a4 4 0 018 0v2" stroke-linecap="round" />
-               </svg>
+               <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <path d="M8 40V24L24 10l16 14v16H8z" />
+                     <rect x="16" y="28" width="16" height="12" rx="1" />
+                     <circle cx="24" cy="22" r="3" />
+                     <path d="M20 28v-2a4 4 0 018 0v2" stroke-linecap="round" />
+                  </svg></div>
                <div class="service-name">Vacation Property Systems</div>
                <p class="service-desc">Set up your rental property to stay guest-ready year-round. From house booklets
                   to
@@ -2046,12 +2086,12 @@
 
             <!-- Card 9: Creative Services / Art & Design -->
             <div class="service-card reveal reveal-delay-2">
-               <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <circle cx="24" cy="24" r="16" />
-                  <path d="M16 32c2-6 4-10 8-10s6 4 8 10" stroke-linecap="round" />
-                  <path d="M20 20a4 4 0 018 0" stroke-linecap="round" />
-                  <path d="M24 8v4M24 36v4M8 24h4M36 24h4" stroke-linecap="round" />
-               </svg>
+               <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <circle cx="24" cy="24" r="16" />
+                     <path d="M16 32c2-6 4-10 8-10s6 4 8 10" stroke-linecap="round" />
+                     <path d="M20 20a4 4 0 018 0" stroke-linecap="round" />
+                     <path d="M24 8v4M24 36v4M8 24h4M36 24h4" stroke-linecap="round" />
+                  </svg></div>
                <div class="service-name">Creative Services &amp; Art</div>
                <p class="service-desc">Need art for your home or want to create something but don't know where to start?
                   From large canvas pieces to placing and hanging your existing collection, I can help.</p>
@@ -2059,11 +2099,11 @@
 
             <!-- Card 10: Keepsake / Photo Display -->
             <div class="service-card reveal">
-               <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <rect x="8" y="10" width="32" height="28" rx="2" />
-                  <path d="M8 30l10-10 8 8 6-6 8 8" stroke-linecap="round" stroke-linejoin="round" />
-                  <circle cx="17" cy="19" r="3" />
-               </svg>
+               <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <rect x="8" y="10" width="32" height="28" rx="2" />
+                     <path d="M8 30l10-10 8 8 6-6 8 8" stroke-linecap="round" stroke-linejoin="round" />
+                     <circle cx="17" cy="19" r="3" />
+                  </svg></div>
                <div class="service-name">Keepsake &amp; Photo Display</div>
                <p class="service-desc">Get your memories out of boxes and onto the walls. I'll help you sort, curate,
                   and
@@ -2072,11 +2112,11 @@
 
             <!-- Card 11: Party / Event Planning -->
             <div class="service-card reveal reveal-delay-1">
-               <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M24 8v6M16 10l3 5M32 10l-3 5" stroke-linecap="round" />
-                  <path d="M10 22h28l-4 18H14L10 22z" />
-                  <path d="M10 22c0-4 4-6 8-4M38 22c0-4-4-6-8-4M24 22c0-4 0-8 0-8" stroke-linecap="round" />
-               </svg>
+               <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <path d="M24 8v6M16 10l3 5M32 10l-3 5" stroke-linecap="round" />
+                     <path d="M10 22h28l-4 18H14L10 22z" />
+                     <path d="M10 22c0-4 4-6 8-4M38 22c0-4-4-6-8-4M24 22c0-4 0-8 0-8" stroke-linecap="round" />
+                  </svg></div>
                <div class="service-name">Party &amp; Event Planning</div>
                <p class="service-desc">From intimate dinner parties to large gatherings, I'll handle menus, shopping
                   lists, service ware, and even cooking so you can enjoy yourself right alongside your guests.</p>
@@ -2084,11 +2124,11 @@
 
             <!-- Card 12: Holiday Decor Management -->
             <div class="service-card reveal reveal-delay-2">
-               <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M24 6l4 10h10l-8 6 3 10-9-6-9 6 3-10-8-6h10z" />
-                  <path d="M12 40h24" stroke-linecap="round" />
-                  <path d="M24 30v10" stroke-linecap="round" />
-               </svg>
+               <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <path d="M24 6l4 10h10l-8 6 3 10-9-6-9 6 3-10-8-6h10z" />
+                     <path d="M12 40h24" stroke-linecap="round" />
+                     <path d="M24 30v10" stroke-linecap="round" />
+                  </svg></div>
                <div class="service-name">Holiday Décor Management</div>
                <p class="service-desc">Love the holidays but dread the setup and breakdown? I'll handle decorating,
                   storing, and inventorying your seasonal décor so every celebration feels merry, not stressful.</p>
@@ -2096,11 +2136,11 @@
 
             <!-- Card 13: Home Concierge / Management -->
             <div class="service-card reveal">
-               <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <circle cx="24" cy="16" r="6" />
-                  <path d="M10 40c0-8 6-14 14-14s14 6 14 14" stroke-linecap="round" />
-                  <path d="M24 30v4M20 34h8" stroke-linecap="round" />
-               </svg>
+               <div class="service-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                     <circle cx="24" cy="16" r="6" />
+                     <path d="M10 40c0-8 6-14 14-14s14 6 14 14" stroke-linecap="round" />
+                     <path d="M24 30v4M20 34h8" stroke-linecap="round" />
+                  </svg></div>
                <div class="service-name">Home Concierge &amp; Management</div>
                <p class="service-desc">A well-organized home has a direct impact on your mental well-being. Ongoing
                   maintenance, re-setting, and support keeps your systems and your household running smoothly so you
@@ -2111,6 +2151,7 @@
       </div>
    </section>
 
+   <!-- TODO: SECTION HIDDEN FOR NOW -->
    <!-- ── GALLERY ───────────────────────────────────────────── -->
    <section id="gallery" class="section">
       <div class="container">
@@ -2150,6 +2191,7 @@
       </div>
    </section>
 
+   <!-- TODO: SECTION HIDDEN FOR NOW -->
    <!-- ── TESTIMONIALS ──────────────────────────────────────── -->
    <section id="testimonials" class="section">
       <div class="container">
@@ -2265,12 +2307,12 @@
             <div class="pricing-cta-inner">
                <div class="pricing-cta-text">
                   <div class="pricing-cta-eyebrow">Ready to get started?</div>
-                  <div class="pricing-cta-heading">Your complimentary consultation is the first step.</div>
+                  <div class="pricing-cta-heading">Your consultation is the first step.</div>
                   <p class="pricing-cta-body">We'll tour your space, talk through your vision, and build a plan
                      together. From there, you'll receive a customized quote with no pressure and no guesswork.</p>
                </div>
                <a href="#contact" class="btn btn-clay">
-                  Book a Free Consultation
+                  Book a Consultation
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                      <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
@@ -2286,7 +2328,8 @@
       <div class="container">
          <div class="process-header reveal">
             <span class="tag">How It Works</span>
-            <h2 class="section-title">Your path to a <em>calm, organized</em> home</h2>
+            <h2 class="section-title">Edit <span class="title-dot"></span> Design <span class="title-dot"></span> Place
+            </h2>
             <div class="divider"></div>
             <p class="section-subtitle" style="margin: 0 auto;">A thoughtful, collaborative process designed around
                your life, your schedule, and your vision.</p>
@@ -2414,10 +2457,11 @@
                      </div>
                   </div>
                   <div class="faq-answer">
-                     <div class="faq-answer-inner">It's completely up to you. Some clients love to be involved and learn
-                        alongside us; others prefer to step out and return to a transformed space. For decisions about
-                        what to keep or let go of, it helps to be nearby — but we can work around your schedule and
-                        comfort level.</div>
+                     <div class="faq-answer-inner">Its completely up to you. During the sorting process you wont need to
+                        participate but some
+                        clients want to be involved or stay nearby. No decisions on edits or placements are made without
+                        your input and we
+                        work around your schedule and comfort level.</div>
                   </div>
                </div>
 
@@ -2449,10 +2493,8 @@
                      </div>
                   </div>
                   <div class="faq-answer">
-                     <div class="faq-answer-inner">A single room (like a pantry or closet) typically takes 3–6 hours.
-                        Larger spaces like a full kitchen or home office may take a full day. Whole-home projects are
-                        scoped during the consultation and usually span 2–5 days depending on the size of the home.
-                     </div>
+                     <div class="faq-answer-inner">Every project is different and your space is unique to you and your
+                        goals. Because of this, no specific time can be determined without a consultation.</div>
                   </div>
                </div>
 
@@ -2661,14 +2703,22 @@
                            class="checkbox-box"></span>Bathroom</label>
                      <label class="checkbox-item"><input type="checkbox" /><span class="checkbox-box"></span>Moving
                         Services</label>
-                     <label class="checkbox-item checkbox-item--full"><input type="checkbox" /><span
-                           class="checkbox-box"></span>I have a gift card</label>
-                     <label class="checkbox-item checkbox-item--full"><input type="checkbox" /><span
-                           class="checkbox-box"></span>I'm renovating my house and I need to edit and pack up my
-                        house</label>
+                     <label class="checkbox-item"><input type="checkbox" /><span class="checkbox-box"></span>Re-Design
+                        of Space</label>
+                     <label class="checkbox-item"><input type="checkbox" /><span class="checkbox-box"></span>Processes
+                        &amp; Systems</label>
+                     <label class="checkbox-item"><input type="checkbox" /><span class="checkbox-box"></span>Project
+                        Management</label>
+                     <label class="checkbox-item"><input type="checkbox" /><span class="checkbox-box"></span>Estate
+                        Clearing</label>
+                     <label class="checkbox-item"><input type="checkbox" /><span class="checkbox-box"></span>Creative
+                        Services</label>
+                     <label class="checkbox-item"><input type="checkbox" /><span class="checkbox-box"></span>Party
+                        Planning</label>
                      <label class="checkbox-item checkbox-item--full"><input type="checkbox" /><span
                            class="checkbox-box"></span>I want to learn more about your services</label>
                   </div>
+                  <!-- TODO: Add additional services on page 13-->
                </div>
 
                <button type="button" class="btn btn-clay btn--full-lg">
@@ -2677,8 +2727,7 @@
                      <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                </button>
-               <p class="form-footnote">We respond within 1
-                  business day. All consultations are complimentary.</p>
+               <p class="form-footnote">We respond within 24 hours.</p>
             </div>
          </div>
       </div>
@@ -2715,9 +2764,12 @@
                <div class="footer-col-title">Company</div>
                <ul class="footer-links">
                   <li><a href="#about">About</a></li>
-                  <li><a href="#gallery">Gallery</a></li>
-                  <li><a href="#testimonials">Reviews</a></li>
+                  <!-- TODO: SECTION LINK HIDDEN FOR NOW -->
+                  <!--li><a href="#gallery">Gallery</a></li-->
+                  <!-- TODO: SECTION LINK HIDDEN FOR NOW -->
+                  <!--li><a href="#testimonials">Reviews</a></li-->
                   <li><a href="#pricing">Pricing</a></li>
+                  <li><a href="#process">Process</a></li>
                   <li><a href="#faq">FAQ</a></li>
                </ul>
             </div>
