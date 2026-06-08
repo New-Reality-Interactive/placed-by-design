@@ -1601,9 +1601,14 @@
       }
 
       .zipper-img {
-         padding: 64px 0;
+         margin: 32px 0;
+         /*padding: 64px 0;*/
          mix-blend-mode: multiply;
-         max-width: 600px;
+         width: 100%;
+         height: 100px;
+         background-image: url('./images/zipper.png');
+         background-repeat: repeat-x;
+         background-size: auto 100%;
       }
 
       /* ─── RESPONSIVE ──────────────────────────────────────────────── */
@@ -1882,7 +1887,7 @@
                </svg>
             </a>
          </div>
-         <img class="zipper-img" src="./images/zipper.png" alt="" />
+         <div class="zipper-img"></div>
          <!--TODO: STATS HIDDEN FOR NOW -->
          <div class="hero-stats">
             <div>
