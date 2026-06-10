@@ -1,0 +1,112 @@
+/* ============================================================
+   TOKENS
+   Single source of truth for palette, typography, motion,
+   and layout. Edit here; everything else references these.
+   ============================================================ */
+
+/* ─── CUSTOM PROPERTIES ─────────────────────────────────────── */
+:root {
+   /* Palette */
+   --cream: #F7F3ED;
+   --cream-rgb: 247, 243, 237;
+   /* rgba(var(--cream-rgb), α) */
+   --warm-white: #FDFAF6;
+   --warm-white-rgb: 253, 250, 246;
+   /* rgba(var(--warm-white-rgb), α) */
+   --white: #ffffff;
+   --clay: #CFAC43;
+   --clay-deep: #B8922A;
+   --sage: #8A9B84;
+   --charcoal: #2C2B29;
+   --charcoal-rgb: 44, 43, 41;
+   /* rgba(var(--charcoal-rgb), α) */
+   --stone: #7A7670;
+   --border: #E4DDD5;
+
+   /* Placeholder shimmer */
+   --ph-shimmer-1: #e8e0d8;
+   --ph-shimmer-2: #d8cfc6;
+   --ph-label-color: #a09890;
+
+   /* Typography — swap variable AND the Google Fonts <link> together */
+   --ff-display: 'Antonio', sans-serif;
+   --ff-serif: 'Antonio', sans-serif;
+   --ff-body: 'Nunito', sans-serif;
+
+   /* Motion */
+   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+   /* Layout */
+   --section-padding: 60px 0;
+}
+
+/* ─── RESET ─────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+html {
+   scroll-behavior: smooth;
+   font-size: 16px;
+   scroll-padding-top: 260px;
+}
+
+body {
+   font-family: var(--ff-body);
+   background: var(--warm-white);
+   color: var(--charcoal);
+   overflow-x: hidden;
+   -webkit-font-smoothing: antialiased;
+}
+
+img {
+   display: block;
+   max-width: 100%;
+}
+
+a {
+   color: inherit;
+   text-decoration: none;
+}
+
+ul {
+   list-style: none;
+}
+
+button {
+   cursor: pointer;
+   border: none;
+   background: none;
+   font-family: inherit;
+}
+
+/* ─── KEYFRAMES ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+   from {
+      opacity: 0;
+      transform: translateY(24px);
+   }
+
+   to {
+      opacity: 1;
+      transform: none;
+   }
+}
+
+@keyframes shimmer {
+   0% {
+      background-position: 0% 50%;
+   }
+
+   50% {
+      background-position: 100% 50%;
+   }
+
+   100% {
+      background-position: 0% 50%;
+   }
+}
