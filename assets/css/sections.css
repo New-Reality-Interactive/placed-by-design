@@ -344,13 +344,6 @@
    margin-bottom: 20px;
 }
 
-.about-credentials {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 10px;
-   margin-top: 32px;
-}
-
 .credential-chip {
    padding: 7px 16px;
    border: 1px solid var(--border);
