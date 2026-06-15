@@ -103,8 +103,8 @@
 .hero-left {
    display: flex;
    flex-direction: column;
-   justify-content: center;
-   padding: 140px 64px 80px 64px;
+   justify-content: flex-start;
+   padding: 260px 64px 80px 64px;
    background: var(--cream);
    position: relative;
    z-index: 1;
